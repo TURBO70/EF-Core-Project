@@ -1,0 +1,195 @@
+﻿namespace EF_Project
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            components = new System.ComponentModel.Container();
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(900, 600);
+            Text = "School Database Management";
+
+            // TabControl
+            tabControl = new TabControl();
+            tabControl.Dock = DockStyle.Fill;
+
+            // Departments Tab
+            tabDepartments = new TabPage("Departments");
+            SetupDepartmentsTab();
+            tabControl.TabPages.Add(tabDepartments);
+
+            // Instructors Tab
+            tabInstructors = new TabPage("Instructors");
+            SetupInstructorsTab();
+            tabControl.TabPages.Add(tabInstructors);
+
+            // Students Tab
+            tabStudents = new TabPage("Students");
+            SetupStudentsTab();
+            tabControl.TabPages.Add(tabStudents);
+
+            // Courses Tab
+            tabCourses = new TabPage("Courses");
+            SetupCoursesTab();
+            tabControl.TabPages.Add(tabCourses);
+
+            Controls.Add(tabControl);
+        }
+
+        private void SetupDepartmentsTab()
+        {
+            dgvDepartments = new DataGridView { Location = new Point(10, 10), Size = new Size(860, 300), SelectionMode = DataGridViewSelectionMode.FullRowSelect };
+
+            var lblName = new Label { Text = "Name:", Location = new Point(10, 330), AutoSize = true };
+            txtDepartmentName = new TextBox { Location = new Point(80, 327), Width = 200 };
+
+            var lblLocation = new Label { Text = "Location:", Location = new Point(300, 330), AutoSize = true };
+            txtDepartmentLocation = new TextBox { Location = new Point(370, 327), Width = 200 };
+
+            btnAddDepartment = new Button { Text = "Add", Location = new Point(10, 370), Width = 100 };
+            btnAddDepartment.Click += btnAddDepartment_Click;
+
+            btnDeleteDepartment = new Button { Text = "Delete", Location = new Point(120, 370), Width = 100 };
+            btnDeleteDepartment.Click += btnDeleteDepartment_Click;
+
+            tabDepartments.Controls.AddRange(new Control[] { dgvDepartments, lblName, txtDepartmentName, lblLocation, txtDepartmentLocation, btnAddDepartment, btnDeleteDepartment });
+        }
+
+        private void SetupInstructorsTab()
+        {
+            dgvInstructors = new DataGridView { Location = new Point(10, 10), Size = new Size(860, 300), SelectionMode = DataGridViewSelectionMode.FullRowSelect };
+
+            var lblFirstName = new Label { Text = "First Name:", Location = new Point(10, 330), AutoSize = true };
+            txtInstructorFirstName = new TextBox { Location = new Point(90, 327), Width = 150 };
+
+            var lblLastName = new Label { Text = "Last Name:", Location = new Point(250, 330), AutoSize = true };
+            txtInstructorLastName = new TextBox { Location = new Point(330, 327), Width = 150 };
+
+            var lblPhone = new Label { Text = "Phone:", Location = new Point(490, 330), AutoSize = true };
+            txtInstructorPhone = new TextBox { Location = new Point(550, 327), Width = 150 };
+
+            var lblDepartment = new Label { Text = "Department:", Location = new Point(10, 370), AutoSize = true };
+            cmbInstructorDepartment = new ComboBox { Location = new Point(90, 367), Width = 200, DropDownStyle = ComboBoxStyle.DropDownList };
+
+            btnAddInstructor = new Button { Text = "Add", Location = new Point(10, 410), Width = 100 };
+            btnAddInstructor.Click += btnAddInstructor_Click;
+
+            btnDeleteInstructor = new Button { Text = "Delete", Location = new Point(120, 410), Width = 100 };
+            btnDeleteInstructor.Click += btnDeleteInstructor_Click;
+
+            tabInstructors.Controls.AddRange(new Control[] { dgvInstructors, lblFirstName, txtInstructorFirstName, lblLastName, txtInstructorLastName, lblPhone, txtInstructorPhone, lblDepartment, cmbInstructorDepartment, btnAddInstructor, btnDeleteInstructor });
+        }
+
+        private void SetupStudentsTab()
+        {
+            dgvStudents = new DataGridView { Location = new Point(10, 10), Size = new Size(860, 300), SelectionMode = DataGridViewSelectionMode.FullRowSelect };
+
+            var lblFirstName = new Label { Text = "First Name:", Location = new Point(10, 330), AutoSize = true };
+            txtStudentFirstName = new TextBox { Location = new Point(90, 327), Width = 150 };
+
+            var lblLastName = new Label { Text = "Last Name:", Location = new Point(250, 330), AutoSize = true };
+            txtStudentLastName = new TextBox { Location = new Point(330, 327), Width = 150 };
+
+            var lblPhone = new Label { Text = "Phone:", Location = new Point(490, 330), AutoSize = true };
+            txtStudentPhone = new TextBox { Location = new Point(550, 327), Width = 150 };
+
+            btnAddStudent = new Button { Text = "Add", Location = new Point(10, 370), Width = 100 };
+            btnAddStudent.Click += btnAddStudent_Click;
+
+            btnDeleteStudent = new Button { Text = "Delete", Location = new Point(120, 370), Width = 100 };
+            btnDeleteStudent.Click += btnDeleteStudent_Click;
+
+            tabStudents.Controls.AddRange(new Control[] { dgvStudents, lblFirstName, txtStudentFirstName, lblLastName, txtStudentLastName, lblPhone, txtStudentPhone, btnAddStudent, btnDeleteStudent });
+        }
+
+        private void SetupCoursesTab()
+        {
+            dgvCourses = new DataGridView { Location = new Point(10, 10), Size = new Size(860, 300), SelectionMode = DataGridViewSelectionMode.FullRowSelect };
+
+            var lblName = new Label { Text = "Name:", Location = new Point(10, 330), AutoSize = true };
+            txtCourseName = new TextBox { Location = new Point(80, 327), Width = 200 };
+
+            var lblDuration = new Label { Text = "Duration:", Location = new Point(300, 330), AutoSize = true };
+            numCourseDuration = new NumericUpDown { Location = new Point(370, 327), Width = 100, Maximum = 1000 };
+
+            var lblDepartment = new Label { Text = "Department:", Location = new Point(10, 370), AutoSize = true };
+            cmbCourseDepartment = new ComboBox { Location = new Point(90, 367), Width = 200, DropDownStyle = ComboBoxStyle.DropDownList };
+
+            var lblInstructor = new Label { Text = "Instructor:", Location = new Point(300, 370), AutoSize = true };
+            cmbCourseInstructor = new ComboBox { Location = new Point(370, 367), Width = 200, DropDownStyle = ComboBoxStyle.DropDownList };
+
+            btnAddCourse = new Button { Text = "Add", Location = new Point(10, 410), Width = 100 };
+            btnAddCourse.Click += btnAddCourse_Click;
+
+            btnDeleteCourse = new Button { Text = "Delete", Location = new Point(120, 410), Width = 100 };
+            btnDeleteCourse.Click += btnDeleteCourse_Click;
+
+            tabCourses.Controls.AddRange(new Control[] { dgvCourses, lblName, txtCourseName, lblDuration, numCourseDuration, lblDepartment, cmbCourseDepartment, lblInstructor, cmbCourseInstructor, btnAddCourse, btnDeleteCourse });
+        }
+
+        #endregion
+
+        private TabControl tabControl;
+        private TabPage tabDepartments;
+        private TabPage tabInstructors;
+        private TabPage tabStudents;
+        private TabPage tabCourses;
+
+        // Departments
+        private DataGridView dgvDepartments;
+        private TextBox txtDepartmentName;
+        private TextBox txtDepartmentLocation;
+        private Button btnAddDepartment;
+        private Button btnDeleteDepartment;
+
+        // Instructors
+        private DataGridView dgvInstructors;
+        private TextBox txtInstructorFirstName;
+        private TextBox txtInstructorLastName;
+        private TextBox txtInstructorPhone;
+        private ComboBox cmbInstructorDepartment;
+        private Button btnAddInstructor;
+        private Button btnDeleteInstructor;
+
+        // Students
+        private DataGridView dgvStudents;
+        private TextBox txtStudentFirstName;
+        private TextBox txtStudentLastName;
+        private TextBox txtStudentPhone;
+        private Button btnAddStudent;
+        private Button btnDeleteStudent;
+
+        // Courses
+        private DataGridView dgvCourses;
+        private TextBox txtCourseName;
+        private NumericUpDown numCourseDuration;
+        private ComboBox cmbCourseDepartment;
+        private ComboBox cmbCourseInstructor;
+        private Button btnAddCourse;
+        private Button btnDeleteCourse;
+    }
+}
